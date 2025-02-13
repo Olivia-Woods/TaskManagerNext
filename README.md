@@ -1,36 +1,116 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Task Manager
 
-## Getting Started
+## Overview
 
-First, run the development server:
+A full-stack task management application built with **Next.js** for the frontend and backend, using **MongoDB** and **Mongoose** for data storage. This app allows users to add, edit, prioritize, complete, and delete tasks dynamically. The UI is beautifully styled and fully responsive.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Task Management**: Add, edit, complete, prioritize, and delete tasks.
+- **Next.js API Routes**: A serverless backend using Next.js API routes.
+- **Responsive Design**: Modern, user-friendly interface.
+- **MongoDB Database**: Data is stored persistently using MongoDB.
+- **CRUD Operations**: Full support for creating, reading, updating, and deleting tasks.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Technologies Used
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### **Frontend & Backend (Full Stack with Next.js)**
 
-## Learn More
+- **Next.js** (App Router, API Routes)
+- **React** (Hooks like `useState`, `useEffect`)
+- **CSS Modules** for styling
 
-To learn more about Next.js, take a look at the following resources:
+### **Database & Backend Integration**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **MongoDB** (NoSQL database)
+- **Mongoose** (ODM for MongoDB)
+- **Next.js API Routes** for backend logic
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Setup Instructions
 
-## Deploy on Vercel
+### Prerequisites:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Node.js and npm installed
+- MongoDB Atlas or a local MongoDB instance
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Steps:
+
+1. **Clone the repository:**
+
+   ```sh
+   git clone <repository-url>
+   ```
+
+2. **Navigate to the project directory:**
+
+   ```sh
+   cd MiniProject3
+   ```
+
+3. **Install dependencies:**
+
+   ```sh
+   npm install
+   ```
+
+4. **Set up MongoDB connection:**
+
+   - Create a `.env.local` file in the root of the project.
+   - Add the following line, replacing `<your-mongo-uri>` with your actual MongoDB URI:
+     ```sh
+     MONGODB_URI=<your-mongo-uri>
+     ```
+
+5. **Start the Next.js application:**
+   ```sh
+   npm run dev
+   ```
+   - The app runs at `http://localhost:3000`.
+
+## API Endpoints
+
+| Method | Endpoint     | Description              |
+| ------ | ------------ | ------------------------ |
+| GET    | `/api/tasks` | Fetch all tasks.         |
+| POST   | `/api/tasks` | Add a new task.          |
+| PUT    | `/api/tasks` | Update an existing task. |
+| DELETE | `/api/tasks` | Delete a specific task.  |
+
+## Example API Usage with cURL
+
+1. **GET `/api/tasks`** - Fetch all tasks:
+
+   ```sh
+   curl http://localhost:3000/api/tasks
+   ```
+
+2. **POST `/api/tasks`** - Add a new task:
+
+   ```sh
+   curl -X POST http://localhost:3000/api/tasks \
+   -H "Content-Type: application/json" \
+   -d '{"content": "Test Task", "completed": false, "isPriority": false}'
+   ```
+
+3. **PUT `/api/tasks`** - Update a task (replace `<id>` with a valid task ID):
+
+   ```sh
+   curl -X PUT http://localhost:3000/api/tasks \
+   -H "Content-Type: application/json" \
+   -d '{"id": "<id>", "content": "Updated Task", "completed": true}'
+   ```
+
+4. **DELETE `/api/tasks`** - Delete a task (replace `<id>` with a valid task ID):
+   ```sh
+   curl -X DELETE "http://localhost:3000/api/tasks?id=<id>"
+   ```
+
+## Known Issues and Future Enhancements
+
+- Implement user authentication for personalized task lists.
+- Enhance UI with animations and better user interactions.
+- Add a due date feature for tasks.
+
+## Acknowledgments
+
+- Built as part of IOD course!
