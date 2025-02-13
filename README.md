@@ -107,7 +107,7 @@ A full-stack task management application built with **Next.js** for the frontend
 
 ## Known Issues and Future Enhancements
 
-- Implement user authentication for personalized task lists.
+- Implement user authentication for personalised task lists.
 - Enhance UI with animations and better user interactions.
 - Add a due date feature for tasks.
 
