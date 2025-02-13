@@ -2,11 +2,11 @@
 
 ## Overview
 
-A full-stack task management application built with **Next.js** for the frontend and backend, using **MongoDB** and **Mongoose** for data storage. This app allows users to add, edit, prioritize, complete, and delete tasks dynamically. The UI is beautifully styled and fully responsive.
+A full-stack task management application built with **Next.js** for the frontend and backend, using **MongoDB** and **Mongoose** for data storage. This app allows users to add, edit, prioritise, complete, and delete tasks dynamically. The UI is beautifully styled and fully responsive.
 
 ## Features
 
-- **Task Management**: Add, edit, complete, prioritize, and delete tasks.
+- **Task Management**: Add, edit, complete, prioritise, and delete tasks.
 - **Next.js API Routes**: A serverless backend using Next.js API routes.
 - **Responsive Design**: Modern, user-friendly interface.
 - **MongoDB Database**: Data is stored persistently using MongoDB.
