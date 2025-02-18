@@ -13,6 +13,7 @@ const TasksPage = () => {
       try {
         const response = await fetch("/api/tasks");
         const data = await response.json();
+        console.log(data);
         if (data.success) {
           setTasks(data.data);
         }
@@ -24,24 +25,8 @@ const TasksPage = () => {
   }, []);
 
   // Add Task to MongoDB
-  const addTask = async (taskContent) => {
-    try {
-      const response = await fetch("/api/tasks", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ content: taskContent }),
-      });
-
-      const result = await response.json();
-
-      if (result.success) {
-        setTasks((prevTasks) => [...prevTasks, result.data]);
-      } else {
-        console.error("Task creation failed:", result.message);
-      }
-    } catch (error) {
-      console.error("Error adding task:", error);
-    }
+  const addTask = (taskContent) => {
+    setTasks([...tasks, taskContent]);
   };
 
   // Delete Task from MongoDB
@@ -108,26 +93,6 @@ const TasksPage = () => {
     }
   };
 
-  // Edit a Task in MongoDB
-  const editTask = async (taskId, newText) => {
-    try {
-      const response = await fetch("/api/tasks", {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ id: taskId, content: newText }),
-      });
-
-      const result = await response.json();
-      if (result.success) {
-        setTasks(
-          tasks.map((task) => (task._id === taskId ? result.data : task))
-        );
-      }
-    } catch (error) {
-      console.error("Error editing task:", error);
-    }
-  };
-
   return (
     <div style={{ padding: "20px", maxWidth: "600px", margin: "0 auto" }}>
       <TaskForm onAdd={addTask} />
@@ -136,7 +101,6 @@ const TasksPage = () => {
         onDelete={deleteTask}
         onToggleDone={toggleTaskDone}
         onTogglePriority={toggleTaskPriority}
-        onEditTask={editTask}
       />
     </div>
   );

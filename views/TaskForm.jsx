@@ -17,7 +17,7 @@ const TaskForm = ({ onAdd }) => {
     if (isSubmitting) return;
 
     setIsSubmitting(true);
-
+    console.log(task.trim());
     try {
       const response = await fetch("/api/tasks", {
         method: "POST",
@@ -30,6 +30,7 @@ const TaskForm = ({ onAdd }) => {
 
       if (result.success) {
         onAdd(result.data);
+        console.log(result);
         setTask("");
       } else {
         alert("Error: " + result.message);

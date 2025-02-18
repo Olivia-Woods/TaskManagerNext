@@ -13,33 +13,25 @@ const sendResponse = (success, data, message = "", status = 200) => {
 export async function POST(request) {
   await dbConnect();
 
-  try {
-    const body = await request.json();
-    console.log("Received body:", body);
+  const body = await request.json();
+  console.log("Received body:", body);
 
-    if (!body.content) {
-      return NextResponse.json(
-        { success: false, message: "Content is required!" },
-        { status: 400 }
-      );
-    }
-
-    const newTask = await Task.create({
-      content: body.content,
-      completed: false,
-    });
-
+  if (!body.content) {
     return NextResponse.json(
-      { success: true, data: newTask, message: "Task created successfully!" },
-      { status: 201 }
-    );
-  } catch (error) {
-    console.error("Error:", error);
-    return NextResponse.json(
-      { success: false, message: error.message },
-      { status: 500 }
+      { success: false, message: "Content is required!" },
+      { status: 400 }
     );
   }
+
+  const newTask = await Task.create({
+    content: body.content,
+    completed: false,
+  });
+  console.log(newTask);
+  return NextResponse.json(
+    { success: true, data: newTask, message: "Task created successfully!" },
+    { status: 200 }
+  );
 }
 
 // *** GET REQUEST (Fetch All Tasks) ***
@@ -51,34 +43,6 @@ export async function GET() {
     return sendResponse(true, tasks, "Tasks fetched successfully!");
   } catch (error) {
     console.error("GET Error:", error);
-    return sendResponse(false, null, error.message, 500);
-  }
-}
-
-// *** PUT REQUEST (Update Task) ***
-export async function PUT(request) {
-  await dbConnect();
-
-  try {
-    const body = await request.json();
-    const { id, ...updateData } = body;
-
-    if (!id) {
-      return sendResponse(false, null, "Task ID is required!", 400);
-    }
-
-    const updatedTask = await Task.findByIdAndUpdate(id, updateData, {
-      new: true,
-      runValidators: true,
-    });
-
-    if (!updatedTask) {
-      return sendResponse(false, null, "Task NOT Found!", 404);
-    }
-
-    return sendResponse(true, updatedTask, "Task updated successfully!", 200);
-  } catch (error) {
-    console.error("PUT Error:", error);
     return sendResponse(false, null, error.message, 500);
   }
 }

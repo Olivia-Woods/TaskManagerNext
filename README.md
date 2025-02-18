@@ -2,15 +2,15 @@
 
 ## Overview
 
-A full-stack task management application built with **Next.js** for the frontend and backend, using **MongoDB** and **Mongoose** for data storage. This app allows users to add, edit, prioritise, complete, and delete tasks dynamically. The UI is beautifully styled and fully responsive.
+A full-stack task management application built with **Next.js** for the frontend and backend, using **MongoDB** and **Mongoose** for data storage. This app allows users to add, prioritise, complete, and delete tasks dynamically. The UI is beautifully styled and fully responsive.
 
 ## Features
 
-- **Task Management**: Add, edit, complete, prioritise, and delete tasks.
+- **Task Management**: Add, complete, prioritise, and delete tasks.
 - **Next.js API Routes**: A serverless backend using Next.js API routes.
 - **Responsive Design**: Modern, user-friendly interface.
 - **MongoDB Database**: Data is stored persistently using MongoDB.
-- **CRUD Operations**: Full support for creating, reading, updating, and deleting tasks.
+- **CRUD Operations**: Full support for creating, reading, and deleting tasks.
 
 ## Technologies Used
 
@@ -69,12 +69,11 @@ A full-stack task management application built with **Next.js** for the frontend
 
 ## API Endpoints
 
-| Method | Endpoint     | Description              |
-| ------ | ------------ | ------------------------ |
-| GET    | `/api/tasks` | Fetch all tasks.         |
-| POST   | `/api/tasks` | Add a new task.          |
-| PUT    | `/api/tasks` | Update an existing task. |
-| DELETE | `/api/tasks` | Delete a specific task.  |
+| Method | Endpoint     | Description             |
+| ------ | ------------ | ----------------------- |
+| GET    | `/api/tasks` | Fetch all tasks.        |
+| POST   | `/api/tasks` | Add a new task.         |
+| DELETE | `/api/tasks` | Delete a specific task. |
 
 ## Example API Usage with cURL
 
@@ -92,15 +91,7 @@ A full-stack task management application built with **Next.js** for the frontend
    -d '{"content": "Test Task", "completed": false, "isPriority": false}'
    ```
 
-3. **PUT `/api/tasks`** - Update a task (replace `<id>` with a valid task ID):
-
-   ```sh
-   curl -X PUT http://localhost:3000/api/tasks \
-   -H "Content-Type: application/json" \
-   -d '{"id": "<id>", "content": "Updated Task", "completed": true}'
-   ```
-
-4. **DELETE `/api/tasks`** - Delete a task (replace `<id>` with a valid task ID):
+3. **DELETE `/api/tasks`** - Delete a task (replace `<id>` with a valid task ID):
    ```sh
    curl -X DELETE "http://localhost:3000/api/tasks?id=<id>"
    ```

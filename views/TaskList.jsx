@@ -1,16 +1,8 @@
-"use client";
-
 import React from "react";
 import TaskItem from "./TaskItem";
 import styles from "./tasks.module.css";
 
-const TaskList = ({
-  tasks,
-  onDelete,
-  onToggleDone,
-  onTogglePriority,
-  onEditTask,
-}) => {
+const TaskList = ({ tasks, onDelete, onToggleDone, onTogglePriority }) => {
   if (!tasks || tasks.length === 0) {
     return <p>No tasks available. Add one above!</p>;
   }
@@ -24,7 +16,6 @@ const TaskList = ({
             onDelete={() => onDelete(task._id)}
             onToggleDone={() => onToggleDone(task._id)}
             onTogglePriority={() => onTogglePriority(task._id)}
-            onEditTask={(newText) => onEditTask(task._id, newText)}
           />
         </li>
       ))}
