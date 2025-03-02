@@ -36,7 +36,7 @@ const TaskForm = ({ onAdd }) => {
         alert("Error: " + result.message);
       }
     } catch (error) {
-      setIsSubmitting(false); // Reset submitting flag on error
+      setIsSubmitting(false);
       console.error("Error adding task:", error);
       alert("Failed to add task.");
     }

@@ -59,7 +59,7 @@ export async function PUT(request) {
       return sendResponse(false, null, "Task ID is required!", 400);
     }
 
-    // Find the task and update only the allowed fields
+    // Find the task and update only the allowed fields.
     const updatedTask = await Task.findByIdAndUpdate(
       id,
       {

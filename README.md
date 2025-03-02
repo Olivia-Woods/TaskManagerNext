@@ -65,7 +65,7 @@ A full-stack task management application built with **Next.js** for the frontend
    ```sh
    npm run dev
    ```
-   - The app runs at `http://localhost:3000`.
+   - The app runs at `http://localhost:3000/tasks`.
 
 ## API Endpoints
 

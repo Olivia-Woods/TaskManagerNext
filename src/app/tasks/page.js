@@ -11,11 +11,11 @@ const TasksPage = () => {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const response = await fetch("/api/tasks"); // Calls the API to get tasks
+        const response = await fetch("/api/tasks");
         const data = await response.json();
         console.log(data);
         if (data.success) {
-          setTasks(data.data); // Updates state with tasks
+          setTasks(data.data);
         }
       } catch (error) {
         console.error("Error fetching tasks:", error);
