@@ -1,5 +1,5 @@
-import dbConnect from "../../../../lib/dbConnect";
-import Task from "../../../../models/task";
+import dbConnect from "../../../lib/dbConnect";
+import Task from "../../../models/task";
 import { NextResponse } from "next/server";
 
 const sendResponse = (success, data, message = "", status = 200) => {

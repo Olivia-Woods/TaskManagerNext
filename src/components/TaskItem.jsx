@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./tasks.module.css";
+import styles from "../styles/tasks.module.css";
 
 const TaskItem = ({ task, onDelete, onToggleDone, onTogglePriority }) => {
   return (

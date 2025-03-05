@@ -1,6 +1,6 @@
 import React from "react";
 import TaskItem from "./TaskItem";
-import styles from "./tasks.module.css";
+import styles from "../styles/tasks.module.css";
 
 const TaskList = ({ tasks, onDelete, onToggleDone, onTogglePriority }) => {
   if (!tasks || tasks.length === 0) {

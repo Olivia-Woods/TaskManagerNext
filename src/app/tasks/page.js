@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import TaskForm from "../../../views/TaskForm";
-import TaskList from "../../../views/TaskList";
+import TaskForm from "../../components/TaskForm";
+import TaskList from "../../components/TaskList";
 
 const TasksPage = () => {
   const [tasks, setTasks] = useState([]);

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import styles from "./tasks.module.css";
+import styles from "../styles/tasks.module.css";
 
 const TaskForm = ({ onAdd }) => {
   const [task, setTask] = useState("");
