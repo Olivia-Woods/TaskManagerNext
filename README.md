@@ -2,7 +2,7 @@
 
 ## Overview
 
-A full-stack task management application built with **Next.js** for the frontend and backend, using **MongoDB** and **Mongoose** for data storage. This app allows users to add, prioritise, complete, and delete tasks dynamically. The UI is beautifully styled and fully responsive.
+A full-stack task management application built with **Next.js** for the frontend and backend, using **MongoDB** and **Mongoose** for data storage. This app allows users to add, prioritise, complete, and delete tasks dynamically.
 
 ## Features
 
@@ -44,7 +44,7 @@ A full-stack task management application built with **Next.js** for the frontend
 2. **Navigate to the project directory:**
 
    ```sh
-   cd MiniProject3
+   cd TaskNext
    ```
 
 3. **Install dependencies:**
@@ -107,9 +107,9 @@ A full-stack task management application built with **Next.js** for the frontend
 
 ## Known Issues and Future Enhancements
 
-- Implement user authentication for personalised task lists.
-- Enhance UI with animations and better user interactions.
-- Add a due date feature for tasks.
+- **Option to Edit Tasks**: Allow users to modify existing tasks.
+- **Drag and Drop Feature**: Enable users to reorder tasks using a drag-and-drop interface (similar to the React version).
+- **Better UI**: Improve the overall design and user experience with enhanced styling and layout.
 
 ## Acknowledgments
 
